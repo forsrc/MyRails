@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       ## render plain: format("Error save -> %s \n\n %s",
       ##                    @user.errors.inspect,
       ##                    params[:user].inspect)
-      redirect_to "new"
+      render "new"
     end
 
 
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     if @user.update(user_params_update)
       redirect_to @user
     else
-      render 'edit'
+      render "edit"
     end
   end
 
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
 
-    redirect_to user_path
+    redirect_to users_path
   end
 
 
