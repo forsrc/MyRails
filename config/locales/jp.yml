@@ -1,5 +1,4 @@
 # Files in the config/locales directory are used for internationalization
-# Files in the config/locales directory are used for internationalization
 # and are automatically loaded by Rails. If you want to use locales other
 # than English, add the necessary files in this directory.
 #
@@ -21,4 +20,4 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world (en)"
+  hello: "Hello world (jp)"
