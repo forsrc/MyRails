@@ -10,8 +10,12 @@ class UserController < ApplicationController
         # render plain: params[:user].inspect
 
         @user = User.new(user_params_new)
-        @user.save
-        redirect_to @user
+        if @user.save
+            redirect_to @user
+        else
+            render plain: "Error save -> " + params[:user].inspect
+        end
+
 
     end
 
