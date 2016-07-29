@@ -1,0 +1,29 @@
+<h1>Listing User</h1>
+
+<%= link_to 'new', new_article_path %>
+
+<table>
+  <tr>
+    <th>id</th>
+    <th>title</th>
+    <th>text</th>
+    <th>show</th>
+    <th>edit</th>
+    <th>destroy</th>
+
+  </tr>
+
+  <% @articles.each do |article| %>
+    <tr>
+        <td><%= article.id %></td>
+        <td><%= article.title %></td>
+        <td><%= article.text %></td>
+        <td><%= link_to 'show', article_path(article) %></td>
+        <td><%= link_to 'edit', edit_article_path(article) %></td>
+        <td><%= link_to 'destroy', article_path(article), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
+
+</table>
+
+

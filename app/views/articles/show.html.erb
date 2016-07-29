@@ -1,0 +1,13 @@
+<h1>Show Article > <%=  @article.id %></h1>
+
+<p>
+  <strong>title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>text:</strong>
+  <%= @article.text %>
+</p>
+
+<%= link_to 'back', articles_path %>
