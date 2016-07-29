@@ -2,7 +2,7 @@ class UserController < ApplicationController
 
     # new
     def new
-
+        @user = User.new
     end
 
     # create
@@ -16,7 +16,7 @@ class UserController < ApplicationController
              ## render plain: format("Error save -> %s \n\n %s",
              ##                    @user.errors.inspect,
              ##                    params[:user].inspect)
-            render "new"
+            redirect_to "new"
         end
 
 
@@ -43,6 +43,13 @@ class UserController < ApplicationController
 
     def index
         @users = User.all
+    end
+
+    def destroy
+        @user = User.find(params[:id])
+        @user.destroy
+
+        redirect_to user_path
     end
 
 
