@@ -13,7 +13,9 @@ class UserController < ApplicationController
         if @user.save
             redirect_to @user
         else
-            render plain: "Error save -> " + params[:user].inspect
+            render plain: format("Error save -> %s \n\n %s",
+                                 @user.errors.full_messages.inspect,
+                                 params[:user].inspect)
         end
 
 
