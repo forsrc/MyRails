@@ -5,6 +5,8 @@
     <th>id</th>
     <th>username</th>
     <th>email</th>
+    <th>show</th>
+    <th>edit</th>
   </tr>
 
   <% @users.each do |user| %>
@@ -12,6 +14,8 @@
         <td><%= user.id %></td>
         <td><%= user.username %></td>
         <td><%= user.email %></td>
+        <td><%= link_to 'show', user_path(user) %></td>
+        <td><%= link_to 'edit', edit_user_path(user) %></td>
     </tr>
   <% end %>
 
