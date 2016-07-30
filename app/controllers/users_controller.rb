@@ -51,6 +51,13 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  def find
+    @user = User.new
+    if params[:username]
+      @user = User.find_by(name: params[:username])
+    end
+    redirect_to @user
+  end
 
   private
   def user_params_new
