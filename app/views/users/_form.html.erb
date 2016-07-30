@@ -1,21 +1,24 @@
 <%= form_for @user do |f| %>
     <p>
       <%= f.label :username %><br>
-      <%= f.text_field :username %>
+      <%= f.text_field :username, :size => 20, :min => 5, :max => 30 %>
     </p>
 
     <p>
       <%= f.label :password %><br>
-      <%= f.password_field :password %>
+      <%= f.password_field :password, :size => 20, :min => 6, :max => 30 %>
     </p>
 
     <p>
       <%= f.label :email %><br>
-      <%= f.text_field :email %>
+      <%= f.text_field :email, :size => 20, :min => 6 %>
     </p>
     <p>
       <%= f.hidden_field :id %>
+      <%= f.hidden_field :status %>
+      <%= f.hidden_field :version %>
     </p>
+
 
     <p>
       <%= f.submit %>

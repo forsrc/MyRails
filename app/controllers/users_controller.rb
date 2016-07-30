@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   # new
   def new
     @user = User.new
+    @user.version = 1
+    @user.status = 1
   end
 
   # create
@@ -9,6 +11,9 @@ class UsersController < ApplicationController
     # render plain: params[:user].inspect
 
     @user = User.new(user_params_new)
+    @user.version = 1
+    @user.status = 1
+
     if @user.save
       redirect_to @user
     else

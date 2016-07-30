@@ -1,5 +1,15 @@
 class User < ApplicationRecord
 
+  validates_uniqueness_of :username
+  validates_presence_of :username
+  validates_length_of :username, :minimum => 5, :maximum => 50
+  validates_length_of :password, :in => 6..20
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :message => "Incorrect email format"
+  validates_presence_of :version
+  validates_presence_of :status
+  validates_inclusion_of :status, :in => 0..1, # %w{ 0 1 }
+                         :message => "should be '0' -> (NG) or '1' -> (OK)"
+
   self.table_name = "users"
   self.primary_key = "id"
 
@@ -24,6 +34,7 @@ class User < ApplicationRecord
       #self.create_on = DateTime.parse(Time.now.to_s).strftime('%Y-%m-%d %H:%M:%S.%N').to_s
       self.create_on = Time.now.strftime('%Y-%m-%d %H:%M:%S.%N')
       self.version = 1
+      self.status = 1
     end
 
   end
