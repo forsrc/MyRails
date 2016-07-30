@@ -12,7 +12,8 @@ class User < ApplicationRecord
 
   protected
   def fun_update_on
-    self.update_on = DateTime.parse(Time.now.to_s).strftime('%Y-%m-%d %H:%M:%S.%N').to_s
+    # self.update_on = DateTime.parse(Time.now.strftime('%Y-%m-%d %H:%M:%S.%N').to_s
+    self.update_on = Time.now.strftime('%Y-%m-%d %H:%M:%S.%N')
     self.version = self.version + 1
   end
 
@@ -20,7 +21,8 @@ class User < ApplicationRecord
   def fun_create_on
 
     unless create_on
-      self.create_on = DateTime.parse(Time.now.to_s).strftime('%Y-%m-%d %H:%M:%S.%N').to_s
+      #self.create_on = DateTime.parse(Time.now.to_s).strftime('%Y-%m-%d %H:%M:%S.%N').to_s
+      self.create_on = Time.now.strftime('%Y-%m-%d %H:%M:%S.%N')
       self.version = 1
     end
 
